@@ -1,0 +1,56 @@
+﻿### Car Shop API Tests
+
+# @host = https://localhost:5001
+@host = http://localhost:5117
+@contentType = application/json
+
+### 1. Create a Car (without owner)
+POST {{host}}/api/Cars
+Content-Type: {{contentType}}
+
+{
+    "make": "Toyota",
+    "model": "Camry",
+    "year": 2022,
+    "price": 25000.00,
+    "vin": "1HGBH41JXMN109186",
+    "status": "Available"
+}
+
+### 2. Create Another Car
+POST {{host}}/api/Cars
+Content-Type: {{contentType}}
+
+{
+    "make": "Honda",
+    "model": "Civic",
+    "year": 2021,
+    "price": 22000.00,
+    "vin": "2HGES16394H537889",
+    "status": "Available"
+}
+
+### 3. Get All Cars
+GET {{host}}/api/Cars
+
+### 4. Get Car by ID (replace with actual ID)
+GET {{host}}/api/Cars/1
+
+### 5. Update a Car (replace with actual car ID)
+PUT {{host}}/api/Cars/1
+Content-Type: {{contentType}}
+
+{
+    "make": null,
+    "model": "Camry",
+    "year": 2022,
+    "price": 26000.00,
+    "vin": "1HGBH41JXMN109186",
+    "status": "Reserved"
+}
+
+### 6. Delete a Car (replace with actual car ID)
+DELETE {{host}}/api/Cars/1
+
+### 7. Get Cars by Owner ID (replace with actual owner ID)
+GET {{host}}/api/Cars/owner/1
